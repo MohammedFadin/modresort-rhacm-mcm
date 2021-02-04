@@ -1,0 +1,13 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: modresortapp101-modresortapp
+  namespace: modresort-project
+  labels:
+    app: modresortapp
+    release: modresort101
+spec:
+  clusterReplicas: 1
+  clusterSelector:
+    matchLabels:
+      environment: dev
