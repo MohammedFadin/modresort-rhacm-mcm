@@ -75,10 +75,9 @@ spec:
       labels:
         app: modresortchan
     spec:
-      type: NodePort
+      type: ClusterIP
       ports:
-        - nodePort: 30758
-          port: 9080
+      -  port: 9080
       selector:
         app: modresortchan
         release: modresort-devchan
@@ -108,10 +107,10 @@ spec:
         app: devchan-modresortchan-route
       name: modresorts
     spec:
-      host: modresorts-default.10.0.0.15.nip.io
+      host:
+      path: /
       port:
         targetPort: 9080
-      subdomain: ""
       to:
         kind: Service
         name: devchan-modresortchan-service
